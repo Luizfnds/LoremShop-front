@@ -1,0 +1,39 @@
+.container {
+    min-height: 0px;
+}
+
+header {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+}
+
+#logo {
+     font-size: 1.5rem;
+}
+
+#search_bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+    width: 400px;
+    border: 1px solid black;
+    justify-content: space-between;
+    margin: 0px 20px 0px 20px;
+}
+
+header div img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px 0px 5px;
+}

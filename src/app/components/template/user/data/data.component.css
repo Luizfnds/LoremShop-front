@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+    column-gap: 50px;
+}
+
+#personal-data,
+#order {
+    width: 300xp;
+}
+
+#personal-data form {
+    display: flex;
+    flex-direction: column;
+}

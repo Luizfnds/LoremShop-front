@@ -1,0 +1,89 @@
+#filter {
+    height: 400px;
+    padding: 30px;
+    width: 100px;
+}
+
+.divisoria-metade {
+    width: 100px;
+    padding: 5px 0px 5px 0px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    padding-bottom: 5px;
+}
+
+input {
+    margin-right: 5px;
+}
+
+#products {
+    width: 800px;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+	flex-direction: row;
+    align-items: flex-start;
+}
+
+#submit {
+    margin-top: 50px;
+
+}
+
+#products ul {
+    margin: 20px 0px 20px 0px;
+    width: 700px;
+    display: flex;
+    column-gap: 30px;
+    row-gap: 30px;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    height: auto;
+}
+
+#products ul li img {
+    height: 250px;
+    width: 200px;
+}
+
+#products ul li div {
+    height: 100px;
+    width: 200px;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    font-size: 20px;
+}
+
+#products_header {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.6rem;
+    padding-left: 50px;
+}
+
+#order_filter {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    padding-right: 90px;
+}
