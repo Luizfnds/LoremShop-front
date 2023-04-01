@@ -1,27 +1,27 @@
 <main>
 
-    <form action="/sla" method="get">
+    <form id="fomrsla" action="/sla" method="get">
         <div id="filter">
             <h2>Tipo</h2>
             <ul>
                 <li>
-                    <input type="checkbox" name="camisa">
+                    <input class="inputsla type" type="checkbox" name="shirt">
                     <label for="camisa">Camisa</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="calcas">
+                    <input class="inputsla type" type="checkbox" name="pants">
                     <label for="calca">Calça</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="shorts">
+                    <input class="inputsla type" type="checkbox" name="shorts">
                     <label for="short">Short</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="moletons">
+                    <input class="inputsla type" type="checkbox" name="sweatshirt">
                     <label for="moleton">Moleton</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="calcado">
+                    <input class="inputsla type" type="checkbox" name="shoe">
                     <label for="calcado">Calçado</label> 
                 </li>
             </ul>
@@ -31,15 +31,15 @@
             <h2>Gênero</h2>
             <ul>
                 <li>
-                    <input type="checkbox" name="masculino">
+                    <input class="inputsla gender" type="checkbox" name="masculine">
                     <label for="masculino">Masculino</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="feminino">
+                    <input class="inputsla gender" type="checkbox" name="feminine">
                     <label for="feminino">Feminino</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="unisex">
+                    <input class="inputsla gender" type="checkbox" name="unisex">
                     <label for="unisex">Unisex</label> 
                 </li>
             </ul>
@@ -50,15 +50,15 @@
             <h2>Tamanho</h2>
             <ul>
                 <li>
-                    <input type="checkbox" name="pequeno">
+                    <input class="inputsla size" type="checkbox" name="p">
                     <label for="pequeno">Pequeno</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="medio">
+                    <input class="inputsla size" type="checkbox" name="m">
                     <label for="medio">Médio</label> 
                 </li>
                 <li>
-                    <input type="checkbox" name="grande">
+                    <input class="inputsla size" type="checkbox" name="g">
                     <label for="grande">Grande</label> 
                 </li>
             </ul>
@@ -68,45 +68,32 @@
     </form>
 
     <div id="products">
+
         <div id="products_header">
-            <h1>Todos os produtos</h1>
-            <div id="order_filter">
-                <span>Ordenar por: </span>
-                <select name="" id="">
-                    <option value="valor1">Valor 1</option>
-                    <option value="valor2" selected>Valor 2</option>
-                    <option value="valor3">Valor 3</option>
+            <h1>{{ title }}</h1>
+            <div id="order-filter">
+                <label id="order-filter_title" for="order-filter_options">Ordenar por: </label>
+                <select id="order-filter_options" name="order-filter">
+                    <option class="order-filter_element" value="name_asc" selected>Relevância</option>
+                    <option class="order-filter_element" value="value_asc">Menor preço</option>
+                    <option class="order-filter_element" value="value_desc">Maior preço</option>
                 </select>
             </div>
         </div>
-        <ul>
-            <li>
-                <img src="../../../../assets/camisa polo.png" alt="">
-                <div>
-                    <span>nome</span>
-                    <span>valor</span>
-                </div>
-            </li>
-            <li>
-                <img src="../../../../assets/camisa polo.png" alt="">
-                <div>
-                    <span>nome</span>
-                    <span>valor</span>
-                </div>
-            </li>
-            <li>
-                <img src="../../../../assets/camisa polo.png" alt="">
-                <div>
-                    <span>nome</span>
-                    <span>valor</span>
-                </div>
-            </li>
-            <li>
-                <img src="../../../../assets/camisa polo.png" alt="">
-                <div>
-                    <span>nome</span>
-                    <span>valor</span>
-                </div>
+
+        <ul class="product-list">
+            <li class="product-list__card" *ngFor="let product of allProducts.content">
+                <a class="product-list__link" routerLink="/products/{{ product.productId }}">
+                    <img class="product-item__image" [src]="convertBase64ToImage( product.image )">
+                    <div class="product-item__details">
+                        <h2 class="product-item__name">
+                            {{ product.name }}
+                        </h2>
+                        <p class="product-item__price">
+                            {{ product.value | currency: "BRL" }}
+                        </p>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>

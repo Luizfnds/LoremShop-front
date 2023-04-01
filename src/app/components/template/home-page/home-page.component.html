@@ -15,41 +15,20 @@
         <section id="featured_products">
             <img src="../../../../assets/divisoria.png" id="divisoria" alt="divisoria">
             <div class="section_title">DESTAQUE</div>
-            <ul>
-                <li>
-                    <img src="../../../../assets/camisa polo.png" alt="">
-                    <div>
-                        <span>nome</span>
-                        <span>valor</span>
-                    </div>
-                </li>
-                <li>
-                    <img src="../../../../assets/camisa polo.png" alt="">
-                    <div>
-                        <span>nome</span>
-                        <span>valor</span>
-                    </div>
-                </li>
-                <li>
-                    <img src="../../../../assets/camisa polo.png" alt="">
-                    <div>
-                        <span>nome</span>
-                        <span>valor</span>
-                    </div>
-                </li>
-                <li>
-                    <img src="../../../../assets/camisa polo.png" alt="">
-                    <div>
-                        <span>nome</span>
-                        <span>valor</span>
-                    </div>
-                </li>
-                <li>
-                    <img src="../../../../assets/camisa polo.png" alt="">
-                    <div>
-                        <span>nome</span>
-                        <span>valor</span>
-                    </div>
+
+            <ul class="product-list">
+                <li class="product-list__card" *ngFor="let product of allProducts.content">
+                    <a class="product-list__link" routerLink="/products/{{ product.productId }}">
+                        <img class="product-item__image" [src]="convertBase64ToImage( product.image )">
+                        <div class="product-item__details">
+                            <h2 class="product-item__name">
+                                {{ product.name }}
+                            </h2>
+                            <p class="product-item__price">
+                                {{ product.value | currency: "BRL" }}
+                            </p>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </section>

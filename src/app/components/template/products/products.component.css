@@ -1,7 +1,17 @@
 #filter {
     height: 400px;
-    padding: 30px;
+    padding: 80px 30px;
     width: 100px;
+}
+
+#filter h2{
+    font-size: 1.3rem;
+}
+
+#filter li{
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
 }
 
 .divisoria-metade {
@@ -37,7 +47,7 @@ main {
 
 }
 
-#products ul {
+.product-list {
     margin: 20px 0px 20px 0px;
     width: 700px;
     display: flex;
@@ -48,12 +58,14 @@ main {
     height: auto;
 }
 
-#products ul li img {
-    height: 250px;
-    width: 200px;
+.product-list__card {
+    display: flex;
 }
 
-#products ul li div {
+.product-item__link {
+}
+
+.product-item__details {
     height: 100px;
     width: 200px;
     background-color: black;
@@ -66,6 +78,16 @@ main {
     font-size: 20px;
 }
 
+.product-item__image {
+    height: 250px;
+    width: 200px;
+}
+
+.product-item__name,
+.product-item__price {
+    text-decoration: none;
+}
+
 #products_header {
     padding-top: 10px;
     display: flex;
@@ -73,17 +95,28 @@ main {
     height: 50px;
     width: 100%;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 h1 {
-    font-size: 1.6rem;
+    font-size: 2.0rem;
     padding-left: 50px;
 }
 
-#order_filter {
+#order-filter {
     display: flex;
     flex-direction: row;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding-right: 90px;
+    display: flex;
+    align-items: center;
+}
+
+#order-filter_title {
+    padding-right: 5px;
+}
+
+#order-filter_options,
+#order-filter_title {
+    font-size: .9rem;
 }

@@ -1,14 +1,20 @@
 <header>
     <div class="container">
-        <div id="logo">LoremShop</div>
+        <a id="logo" routerLink="/">LoremShop</a>
         <div id="search_bar">
-            <span>Buscar um produto específico</span>
-            <img alt="lupa" src="../../../../assets/magnifying-glass.png">
+            <form>
+                <input id="input-busca" placeholder="Buscar um produto específico" type="text">
+                <a routerLink="/products" (click)="getInputName($event)">
+                    <img id="lupa" alt="lupa" src="../../../../assets/magnifying-glass.png">
+                </a>
+            </form>
         </div>
-        <span>Todos produtos</span>
+        <a routerLink="/products">Todos produtos</a>
         <div>
-            <img alt="carrinho" src="../../../../assets/shopping-cart.png">
-            <img alt="pessoa" src="../../../../assets/user.png">
+            <img alt="carrinho" id="cart" class="header_icon" src="../../../../assets/shopping-cart.png">
+            <a routerLink="/user/login">
+                <img alt="conta" id="account" class="header_icon" src="../../../../assets/user.png">
+            </a>
         </div>
     </div>  
 </header>
