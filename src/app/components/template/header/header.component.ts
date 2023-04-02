@@ -1,5 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { ProductsComponent } from '../products/products.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ import { ProductsComponent } from '../products/products.component';
 })
 export class HeaderComponent implements OnInit{
 
-  static InputName: String;
+  static InputName: string;
 
   constructor(
-    private productsComponent: ProductsComponent
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -24,7 +25,14 @@ export class HeaderComponent implements OnInit{
 
   getInputName(event: any) {
     HeaderComponent.InputName = (<HTMLSelectElement>document.querySelector("#input-busca")).value;
-  //  this.productsComponent.getProducts();
+    this.reloadComponent();
+  }
+
+  reloadComponent() {
+    let url = "/products";
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([url]);
   }
 
 }

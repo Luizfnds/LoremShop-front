@@ -1,12 +1,13 @@
 export class Filter {
 
-    name!: String;
-    types!: String[];
+    public name!: string;
+    public types: string[] = [];
 
     constructor(
-        name: String,
-        types: String
+        name: string,
+        types: string
     ) {
-
+        this.name = name;
+        this.types.push(types);
     }
 }

@@ -1,28 +1,28 @@
 <main>
 
-    <form id="fomrsla" action="/sla" method="get">
+    <form (change)="getAllProducts()">
         <div id="filter">
             <h2>Tipo</h2>
             <ul>
                 <li>
-                    <input class="inputsla type" type="checkbox" name="shirt">
-                    <label for="camisa">Camisa</label> 
+                    <input class="filterCheckbox type" type="checkbox" name="shirt" id="shirt">
+                    <label for="shirt">Camisa</label> 
                 </li>
                 <li>
-                    <input class="inputsla type" type="checkbox" name="pants">
-                    <label for="calca">Calça</label> 
+                    <input class="filterCheckbox type" type="checkbox" name="pants" id="pants">
+                    <label for="pants">Calça</label> 
                 </li>
                 <li>
-                    <input class="inputsla type" type="checkbox" name="shorts">
-                    <label for="short">Short</label> 
+                    <input class="filterCheckbox type" type="checkbox" name="shorts" id="shorts">
+                    <label for="shorts">Short</label> 
                 </li>
                 <li>
-                    <input class="inputsla type" type="checkbox" name="sweatshirt">
-                    <label for="moleton">Moleton</label> 
+                    <input class="filterCheckbox type" type="checkbox" name="sweatshirt" id="sweatshirt">
+                    <label for="sweatshirt">Moleton</label> 
                 </li>
                 <li>
-                    <input class="inputsla type" type="checkbox" name="shoe">
-                    <label for="calcado">Calçado</label> 
+                    <input class="filterCheckbox type" type="checkbox" name="shoe" id="shoe">
+                    <label for="shoe">Calçado</label> 
                 </li>
             </ul>
 
@@ -31,15 +31,15 @@
             <h2>Gênero</h2>
             <ul>
                 <li>
-                    <input class="inputsla gender" type="checkbox" name="masculine">
-                    <label for="masculino">Masculino</label> 
+                    <input class="filterCheckbox gender" type="checkbox" name="masculine" id="masculine">
+                    <label for="masculine">Masculino</label> 
                 </li>
                 <li>
-                    <input class="inputsla gender" type="checkbox" name="feminine">
-                    <label for="feminino">Feminino</label> 
+                    <input class="filterCheckbox gender" type="checkbox" name="feminine" id="shirt" id="feminine">
+                    <label for="feminine">Feminino</label> 
                 </li>
                 <li>
-                    <input class="inputsla gender" type="checkbox" name="unisex">
+                    <input class="filterCheckbox gender" type="checkbox" name="unisex" id="unisex">
                     <label for="unisex">Unisex</label> 
                 </li>
             </ul>
@@ -50,20 +50,18 @@
             <h2>Tamanho</h2>
             <ul>
                 <li>
-                    <input class="inputsla size" type="checkbox" name="p">
-                    <label for="pequeno">Pequeno</label> 
+                    <input class="filterCheckbox size" type="checkbox" name="p" id="p">
+                    <label for="p">Pequeno</label> 
                 </li>
                 <li>
-                    <input class="inputsla size" type="checkbox" name="m">
-                    <label for="medio">Médio</label> 
+                    <input class="filterCheckbox size" type="checkbox" name="m" id="m">
+                    <label for="m">Médio</label> 
                 </li>
                 <li>
-                    <input class="inputsla size" type="checkbox" name="g">
-                    <label for="grande">Grande</label> 
+                    <input class="filterCheckbox size" type="checkbox" name="g" id="g">
+                    <label for="g">Grande</label> 
                 </li>
             </ul>
-
-            <input id="submit" type="submit">
         </div>
     </form>
 
@@ -73,16 +71,16 @@
             <h1>{{ title }}</h1>
             <div id="order-filter">
                 <label id="order-filter_title" for="order-filter_options">Ordenar por: </label>
-                <select id="order-filter_options" name="order-filter">
-                    <option class="order-filter_element" value="name_asc" selected>Relevância</option>
-                    <option class="order-filter_element" value="value_asc">Menor preço</option>
-                    <option class="order-filter_element" value="value_desc">Maior preço</option>
+                <select id="order-filter_options" name="order-filter" (change)="getAllProducts()">
+                    <option class="order-filter_element" value="name,asc" selected>Relevância</option>
+                    <option class="order-filter_element" value="value,asc">Menor preço</option>
+                    <option class="order-filter_element" value="value,desc">Maior preço</option>
                 </select>
             </div>
         </div>
 
         <ul class="product-list">
-            <li class="product-list__card" *ngFor="let product of allProducts.content">
+            <li (click)="getAllProducts()" class="product-list__card" *ngFor="let product of allProducts.content">
                 <a class="product-list__link" routerLink="/products/{{ product.productId }}">
                     <img class="product-item__image" [src]="convertBase64ToImage( product.image )">
                     <div class="product-item__details">

@@ -13,11 +13,11 @@ export class FindProductsService {
   }
     
   getAllProducts(){
-    return this.http.get(`${this.apiURL}product`);
+    return this.http.get(`${this.apiURL}product?size=3`);
   }
 
   getAllFiltredProducts(productName: string, filterList: string, sort: string){
-    const config = { params: new HttpParams().set('productName', productName).set('filters', filterList).set('sort', sort) };
+    const config = { params: new HttpParams().set('productName', productName).set('filterList', filterList).set('sort', sort) };
     return this.http.get(`${this.apiURL}product`, config);
   }
 
