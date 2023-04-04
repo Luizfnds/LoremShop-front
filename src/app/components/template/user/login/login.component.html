@@ -1,16 +1,16 @@
-<main>
+<main *ngIf="isLoggedIn; else isLoggeOut">
 
     <div  class="container">
 
-        <div id="login">
-            <form action="" method="POST">
+        <div (submit)="authenticate()" id="login">
+            <form>
                 <h2 class="title">Logar</h2>
-                <input placeholder="E-mail" type="email" name="email" id="login-email">
-                <input placeholder="Senha" type="password" name="password" id="login-password">
+                <input placeholder="E-mail" type="email" name="email" id="login-email" [formControl]="email">
+                <input placeholder="Senha" type="password" name="password" id="login-password" [formControl]="password">
                 <button type="submit" id="login-btn">Logar</button>
             </form>
         </div>
-
+        
         <img id="divisoria" src="../../../../../assets/divisoria-metade.png" alt="divisoria">
 
         <div id="register">
@@ -36,3 +36,7 @@
     </div>
 
 </main>
+
+<ng-template #isLoggeOut>
+    <h2>ASDOASJDKASD</h2>
+</ng-template>

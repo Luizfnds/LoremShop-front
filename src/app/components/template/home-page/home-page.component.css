@@ -82,3 +82,7 @@ main {
 #divisoria {
     width: 900px;
 }
+
+.product-list__link {
+    text-decoration: none;
+}
