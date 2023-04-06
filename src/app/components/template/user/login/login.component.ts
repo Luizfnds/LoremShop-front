@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { UserApiService } from '../user-api/user-api.service';
 import { UserLoginData } from '../user-login-data';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,40 +13,51 @@ import { UserLoginData } from '../user-login-data';
 export class LoginComponent implements OnInit {
 
   isLoggedIn: boolean = !(this.getCookieValue("token"));
+  user: any;
+  token: any;
 
   email = new FormControl('');
   password = new FormControl('');
 
   constructor(
-    private formBuilder: FormBuilder,
     private userApi: UserApiService   
   ){}
 
   ngOnInit(): void {
+    this.getUser();
   }
 
-  authenticate() {
-    let userLoginData = new UserLoginData(this.email.value, this.password.value);
-    this.userApi.authenticate(userLoginData).toPromise().then(token => this.addCookie(token));
-    this.isLoggedIn = !!(this.getCookieValue("token"));
+  async getUser() {
+    if(!!(this.getCookieValue("token"))) {
+      const req = this.userApi.getUser(this.getCookieValue("token"));
+      this.user = await firstValueFrom(req);
+    }
+  }
+
+  async authenticate() {
+    const userLoginData = new UserLoginData(this.email.value, this.password.value);
+    const req = this.userApi.authenticate(userLoginData);
+    const token = await firstValueFrom(req);
+    this.addCookie(token);
+
+    this.getUser();
+    this.isLoggedIn = !(this.getCookieValue("token"));
   }
 
   addCookie(token: any) {
-    let expiration = token.expiration.toUTCString;
+    const expiration = token.expiration.toUTCString;
     document.cookie = `${token.name}=${token.value}; expires=${expiration}`;
   }
 
-  getCookieValue(name: string) {
+  getCookieValue(cookieName: string): string {
     const cDecoded = decodeURIComponent(document.cookie);
     const cArray = cDecoded.split("; ");
-    let cookieValue;
-
+    let cookieValue: string = "";
     cArray.forEach(cookie => {
-      if(cookie.indexOf(name) == 0) {
-        cookieValue = cookie.substring(name.length + 1);
+      if(cookie.indexOf(cookieName) == 0) {
+        cookieValue = cookie.substring(cookieName.length + 1);
       }
     })
-
     return cookieValue;
   }
 

@@ -62,3 +62,53 @@ button {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
+
+/* user options */
+
+.user-options {
+    width: 300px;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.user-options a{
+    padding: 5px;
+}
+
+#option-title {
+    font-size: 2.0rem;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+/* user data */
+
+.user-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-data_div-label-input {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.user-data_input {
+    border: 1px solid black;
+    padding: 10px;
+    width: 250px;
+}
+
+#user-data_btn {
+    margin-top: 20px;
+    height: 50px;
+    width: 250px;
+}
