@@ -87,6 +87,14 @@ button {
     row-gap: 30px;
 }
 
+.user-options button {
+    width: 150px;
+    background-color: #f44;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+}
+
 /* user data */
 
 .user-data {

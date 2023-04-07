@@ -13,22 +13,18 @@
         
         <img id="divisoria" src="../../../../../assets/divisoria-metade.png" alt="divisoria">
 
-        <div id="register">
-            <form action="" method="POST">
+        <div (submit)="register()" id="register">
+            <form>
                 <h2 class="title">Cadastrar</h2>
-
                 <div>
                     <input placeholder="Nome" type="text" id="register-name">
                     <input placeholder="Sobrenome" type="text" id="register-surname">
                 </div>
-
                 <input placeholder="E-mail" type="email" id="register-email">
-
                 <div>
                     <input placeholder="Senha" type="password" id="register-password">
                     <input placeholder="Confirmar senha" type="password" id="register-confirm-password">
                 </div>
-                
                 <button type="submit" id="register-btn">Cadastrar</button>
             </form>
         </div>
@@ -43,6 +39,7 @@
             <div class="user-options">
                 <a>Dados pessoais</a>
                 <a>Pedidos</a>
+                <button (click)="removeCookie()">Deslogar</button>
             </div>
             <div class="option">
                 <p id="option-title">Title</p>
