@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { HomePageComponent } from './components/template/home-page/home-page.component';
 import { FooterComponent } from './components/template/footer/footer.component';
-import { LoginComponent } from './components/template/user/login/login.component';
+import { UserComponent } from './components/template/user/user/user.component';
 import { DataComponent } from './components/template/user/data/data.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -18,8 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     HomePageComponent,
     FooterComponent,
-    LoginComponent,
-    DataComponent
+    UserComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,

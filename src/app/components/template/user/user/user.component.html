@@ -37,31 +37,15 @@
     <main>
         <div class="container">
             <div class="user-options">
-                <a>Dados pessoais</a>
-                <a>Pedidos</a>
-                <button (click)="removeCookie()">Deslogar</button>
+                <ul>
+                    <li><a routerLink="data">Dados pessoais</a></li>
+                    <li><a routerLink="orders">Pedidos</a></li>
+                    <button (click)="removeCookie()">Deslogar</button>
+                </ul>
             </div>
+            
             <div class="option">
-                <p id="option-title">Title</p>
-                <form>
-                    <div class="user-data">
-                        <div class="user-data_div-label-input">
-                            <label for="input_name">Nome</label>
-                            <input type="text" [value]="user.name" class="user-data_input" id="input_name" name="input_name">
-                        </div>
-                        <div class="user-data_div-label-input">
-                            <label for="input_surname">Sobrenome</label>
-                            <input type="text" [value]="user.surname" class="user-data_input" id="input_surname" name="input_surname">  
-                        </div>
-                        <div class="user-data_div-label-input">
-                            <label for="input_email">Email</label>
-                            <input type="text" [value]="user.email" class="user-data_input" id="input_email" name="input_email">
-                        </div>
-                        <button type="submit" id="user-data_btn">Salvar dados</button>
-                    </div>
-                    <div class="user-orders">
-                    </div>
-                </form>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </main>

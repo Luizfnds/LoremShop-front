@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 80vh;
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 #login,
@@ -65,26 +65,25 @@ button {
 
 /* user options */
 
-.user-options {
-    width: 300px;
+.user-options ul {
+    padding: 20px 50px;
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 20px;
+    align-items: center;
 }
 
-.user-options a{
+.user-options li a{
     padding: 5px;
-}
-
-#option-title {
-    font-size: 2.0rem;
+    text-decoration: none;
+    color: black;
 }
 
 .option {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    padding: 20px;
 }
 
 .user-options button {
@@ -95,28 +94,3 @@ button {
     border-radius: 10px;
 }
 
-/* user data */
-
-.user-data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.user-data_div-label-input {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-}
-
-.user-data_input {
-    border: 1px solid black;
-    padding: 10px;
-    width: 250px;
-}
-
-#user-data_btn {
-    margin-top: 20px;
-    height: 50px;
-    width: 250px;
-}

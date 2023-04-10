@@ -7,11 +7,11 @@ import { UserRegistryData } from '../user-registry-data';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   isLoggedIn: boolean = !(this.getCookieValue("token"));
   user: any = "";
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
 
   removeCookie() {
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=strict";
-    console.log("sla");
+    this.isLoggedIn = !(this.getCookieValue("token"));
   }
 
 }
