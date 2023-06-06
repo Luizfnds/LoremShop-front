@@ -13,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit{
 
+  isLoggedIn: boolean = !(this.getCookieValue("token"));
+
   static InputName: string;
 
   constructor(
@@ -33,6 +35,22 @@ export class HeaderComponent implements OnInit{
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([url]);
+  }
+
+  getCookieValue(cookieName: string): string {
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArray = cDecoded.split("; ");
+    let cookieValue: string = "";
+    cArray.forEach(cookie => {
+      if(cookie.indexOf(cookieName) == 0) {
+        cookieValue = cookie.substring(cookieName.length + 1);
+      }
+    })
+    return cookieValue;
+  }
+
+  async ce() {
+    this.isLoggedIn = !!(this.getCookieValue("token"));
   }
 
 }

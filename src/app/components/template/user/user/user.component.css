@@ -4,7 +4,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     min-height: 80vh;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 #login,
@@ -65,19 +65,28 @@ button {
 
 /* user options */
 
-.user-options ul {
-    padding: 20px 50px;
+.user-options {
+    padding: 40px;
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     align-items: center;
+    justify-content: space-between;
+    height: 400px;
+    border: 1px solid #000;
+}
+
+.user-options ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .user-options li a{
     padding: 5px;
     text-decoration: none;
-    color: black;
+    color: #000;
 }
 
 .option {

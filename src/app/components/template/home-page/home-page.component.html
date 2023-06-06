@@ -3,23 +3,23 @@
     <div class="container">
 
         <section id="banner_area">
-            <img src="../../../../assets/arrow-right.png" alt="left_button">
+            <img class="left_button" src="assets/arrow-right.png" alt="left_button" (click)="previousBanner()">
             <ul id="banner_list">
                 <li>
-                    <img src="../../../../assets/—Pngtree—black friday sale text emblem_1230737.jpg" alt="banner_image">
+                    <img class="banner_image" [src]="bannerList[bannerIndex]" alt="banner_image">
                 </li>
             </ul>
-            <img src="../../../../assets/arrow-right.png" alt="right_button">
+            <img class="right_button" src="assets/arrow-right.png" alt="right_button" (click)="nextBanner()">
         </section>
 
         <section id="featured_products">
-            <img src="../../../../assets/divisoria.png" id="divisoria" alt="divisoria">
+            <img src="assets/divisoria.png" id="divisoria" alt="divisoria">
             <div class="section_title">DESTAQUE</div>
 
             <ul class="product-list">
                 <li class="product-list__card" *ngFor="let product of allProducts.content">
                     <a class="product-list__link" routerLink="/products/{{ product.productId }}">
-                        <img class="product-item__image" [src]="convertBase64ToImage( product.image )">
+                        <img class="product-item__image" [src]=" product.image ">
                         <div class="product-item__details">
                             <h2 class="product-item__name">
                                 {{ product.name }}

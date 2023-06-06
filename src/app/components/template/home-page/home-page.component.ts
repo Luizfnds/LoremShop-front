@@ -19,6 +19,9 @@ export class HomePageComponent implements OnInit{
   filterList!: string;
   sort!: string;
 
+  bannerList: Array<string> = ["assets/banner1.jpg", "assets/banner2.png"];
+  bannerIndex: number = 0;
+
   constructor(
     private findProducts: FindProductsService, 
     private sanitizer: DomSanitizer,
@@ -32,6 +35,18 @@ export class HomePageComponent implements OnInit{
     this.allProducts = this.findProducts
     .getAllProducts()
     .subscribe((product) => this.allProducts = product);
+  }
+
+  nextBanner() {
+    if(this.bannerIndex < this.bannerList.length - 1) {
+      this.bannerIndex += 1;
+    }
+  }
+
+  previousBanner() {    
+    if(this.bannerIndex > 0) {
+      this.bannerIndex -= 1;
+    }
   }
 
   convertBase64ToImage(imageBase64: any) {

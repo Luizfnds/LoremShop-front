@@ -65,4 +65,5 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+	padding: 80px 0px 40px 0px;
 }

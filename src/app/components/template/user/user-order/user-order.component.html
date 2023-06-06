@@ -1,3 +1,21 @@
 <p id="option-title">Pedidos</p>
 
-<p>user-order works!</p>
+<ul class="order-list">
+    <li class="order-list__card" *ngFor="let order of orders" [id]="order.id">
+        <div class="order__info">
+            <p class="order__status">{{ order.status }}</p>
+            <p class="order__total-value">{{ (order.totalValue).toFixed(2) | currency: "BRL" }}</p>
+        </div>
+        <ul class="order-item__list">
+            <li class="order-item__card" *ngFor="let item of order.items" [id]="item.id">
+                <img class="order-item__image" [src]="item.product.image">
+                <div class="order-item__info">
+                    <p class="order-item__name">Produto: {{ item.product.name }}</p>
+                    <p class="order-item__quantity">Quantidade: {{ item.quantity }}</p>
+                    <p class="order-item__value">{{ (item.product.value * item.quantity) | currency: "BRL" }}</p>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+

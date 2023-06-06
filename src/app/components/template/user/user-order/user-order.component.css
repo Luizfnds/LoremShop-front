@@ -2,3 +2,60 @@
     font-size: 1.8rem;
     margin-bottom: 40px;
 }
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    max-height: 390px;
+    overflow-y: scroll;
+}
+
+.order-item__list {
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 10px;
+}
+
+.order-item__image {
+    width: 60px;
+    height: 70px;
+}
+
+.order-list__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 500px;
+}
+
+.order-item__card {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #000;
+}
+
+.order__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 480px;
+    background-color: #222;
+    color: #eee;
+    padding: 10px;
+}
+
+.order-item__info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 400px;
+}
+
+.order-item__value {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}

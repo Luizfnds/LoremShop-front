@@ -5,8 +5,8 @@
         <div (submit)="authenticate()" id="login">
             <form>
                 <h2 class="title">Logar</h2>
-                <input placeholder="E-mail" type="email" name="email" id="login-email" [formControl]="email">
-                <input placeholder="Senha" type="password" name="password" id="login-password" [formControl]="password">
+                <input placeholder="E-mail" type="email" name="email" id="login-email" [formControl]="emailLogin">
+                <input placeholder="Senha" type="password" name="password" id="login-password" [formControl]="passwordLogin">
                 <button type="submit" id="login-btn">Logar</button>
             </form>
         </div>
@@ -17,13 +17,13 @@
             <form>
                 <h2 class="title">Cadastrar</h2>
                 <div>
-                    <input placeholder="Nome" type="text" id="register-name">
-                    <input placeholder="Sobrenome" type="text" id="register-surname">
+                    <input placeholder="Nome" type="text" id="register-name" [formControl]="nameRegistry">
+                    <input placeholder="Sobrenome" type="text" id="register-surname" [formControl]="surnameRegistry">
                 </div>
-                <input placeholder="E-mail" type="email" id="register-email">
+                <input placeholder="E-mail" type="email" id="register-email" [formControl]="emailRegistry">
                 <div>
-                    <input placeholder="Senha" type="password" id="register-password">
-                    <input placeholder="Confirmar senha" type="password" id="register-confirm-password">
+                    <input placeholder="Senha" type="password" id="register-password" [formControl]="passwordRegistry">
+                    <input placeholder="Confirmar senha" type="password" id="register-confirm-password" [formControl]="passwordConfirmationRegistry">
                 </div>
                 <button type="submit" id="register-btn">Cadastrar</button>
             </form>
@@ -40,8 +40,8 @@
                 <ul>
                     <li><a routerLink="data">Dados pessoais</a></li>
                     <li><a routerLink="orders">Pedidos</a></li>
-                    <button (click)="removeCookie()">Deslogar</button>
                 </ul>
+                <button (click)="removeCookie()">Deslogar</button>
             </div>
             
             <div class="option">

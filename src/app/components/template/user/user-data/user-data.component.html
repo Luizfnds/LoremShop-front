@@ -3,17 +3,13 @@
     <div class="user-data">
         <div class="user-data_div-label-input">
             <label for="input_name">Nome</label>
-            <input type="text" [value]="user.name" class="user-data_input" id="input_name" name="input_name">
+            <input type="text" [value]="user.name" class="user-data_input" id="input_name" name="input_name" [formControl]="alterName">
         </div>
         <div class="user-data_div-label-input">
             <label for="input_surname">Sobrenome</label>
-            <input type="text" [value]="user.surname" class="user-data_input" id="input_surname" name="input_surname">  
+            <input type="text" [value]="user.surname" class="user-data_input" id="input_surname" name="input_surname" [formControl]="alterSurname">  
         </div>
-        <div class="user-data_div-label-input">
-            <label for="input_email">Email</label>
-            <input type="text" [value]="user.email" class="user-data_input" id="input_email" name="input_email">
-        </div>
-        <button type="submit" id="user-data_btn">Salvar dados</button>
+        <button type="submit" id="user-data_btn" (click)="alterUser()">Salvar dados</button>
     </div>
     <div class="user-orders">
     </div>

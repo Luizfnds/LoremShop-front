@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserApiService } from '../user-api/user-api.service';
 import { firstValueFrom } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-data',
@@ -10,6 +11,8 @@ import { firstValueFrom } from 'rxjs';
 export class UserDataComponent implements OnInit {
 
   user: any = "";
+  alterName = new FormControl('');
+  alterSurname = new FormControl('');
 
   constructor(
     private userApi: UserApiService   
@@ -22,6 +25,15 @@ export class UserDataComponent implements OnInit {
   async getUser() {
     if(!!(this.getCookieValue("token"))) {
       const req = this.userApi.getUser(this.getCookieValue("token"));
+      this.user = await firstValueFrom(req);
+    }
+  }
+
+  async alterUser() {
+    if(!!(this.getCookieValue("token"))) {
+      console.log(this.alterName.value);
+      console.log(this.alterSurname.value);
+      const req = this.userApi.alterUser(this.getCookieValue("token"), { name: this.alterName.value , surname: this.alterSurname.value });
       this.user = await firstValueFrom(req);
     }
   }

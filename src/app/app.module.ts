@@ -11,6 +11,7 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { UserComponent } from './components/template/user/user/user.component';
 import { DataComponent } from './components/template/user/data/data.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserCartComponent } from './components/template/user/user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     UserComponent,
     DataComponent,
+    UserCartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

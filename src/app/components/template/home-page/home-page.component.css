@@ -7,6 +7,15 @@ main {
 
 /* banner area */
 
+.left_button,
+.right_button {
+    cursor: pointer;
+}
+
+.left_button {
+    transform: rotate(180deg);
+}
+
 #banner_area {
     display: flex;
     align-items: center;
@@ -20,10 +29,8 @@ main {
 }
 
 #banner_list img {
-    max-width: 600px;
-    max-height: 350px;
-    width: auto;
-    height: auto;
+    width: 600px;
+    height: 300px;
     padding: 0px 10px 0px 10px;
 }
 
@@ -44,6 +51,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.product-list__card {
+    border: solid 1px #555;
+}
+
+.product-item__name {
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 #featured_products ul {

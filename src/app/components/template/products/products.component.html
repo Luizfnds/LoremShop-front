@@ -1,6 +1,6 @@
 <main>
 
-    <form (change)="getAllProducts()">
+    <form (change)="getAllProducts(atualPage)">
         <div id="filter">
             <h2>Tipo</h2>
             <ul>
@@ -71,7 +71,7 @@
             <h1>{{ title }}</h1>
             <div id="order-filter">
                 <label id="order-filter_title" for="order-filter_options">Ordenar por: </label>
-                <select id="order-filter_options" name="order-filter" (change)="getAllProducts()">
+                <select id="order-filter_options" name="order-filter" (change)="getAllProducts(atualPage)">
                     <option class="order-filter_element" value="name,asc" selected>Relevância</option>
                     <option class="order-filter_element" value="value,asc">Menor preço</option>
                     <option class="order-filter_element" value="value,desc">Maior preço</option>
@@ -80,9 +80,9 @@
         </div>
 
         <ul class="product-list">
-            <li (click)="getAllProducts()" class="product-list__card" *ngFor="let product of allProducts.content">
+            <li (click)="getAllProducts(atualPage)" class="product-list__card" *ngFor="let product of allProducts.content">
                 <a class="product-list__link" routerLink="/products/{{ product.productId }}">
-                    <img class="product-item__image" [src]="convertBase64ToImage( product.image )">
+                    <img class="product-item__image" [src]=" product.image ">
                     <div class="product-item__details">
                         <h2 class="product-item__name">
                             {{ product.name }}
@@ -94,6 +94,10 @@
                 </a>
             </li>
         </ul>
+
+        <div class="totalPages">
+            <p (click)="alterAtualPage($event)" *ngFor="let i of totalPages" [ngClass]=" i === atualPage+1 ? 'atual-page' : 'page' ">{{ i }}</p>
+        </div>
     </div>
 
 </main>

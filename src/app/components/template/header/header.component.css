@@ -7,6 +7,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
 }
 
 header div {
@@ -77,8 +81,4 @@ form a {
     right: 0px;
     height: 100%;
     margin: 0px;
-}
-
-#account {
-    
 }

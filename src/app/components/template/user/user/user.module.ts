@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserDataComponent } from '../user-data/user-data.component';
 import { UserOrderComponent } from '../user-order/user-order.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,8 @@ import { UserOrderComponent } from '../user-order/user-order.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     UserRoutingModule
   ]
 })

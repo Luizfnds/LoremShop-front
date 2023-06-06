@@ -1,0 +1,39 @@
+<main *ngIf="isCartNotEmpty; else isCartEmpty">
+
+    <div class="container">
+        <div class="cart">
+            <ul class="item-list">
+                <li class="item-list__card" *ngFor="let item of cart.items" [id]="item.id">
+                    <img class="cart-item__image" [src]=" item.product.image ">
+                    <h2 class="cart-item__name">{{ item.product.name }}</h2>
+                    <input class="cart-item__quantity" type="number" min="1" [value]="item.quantity" (change)="alterItemOnCart($event)">
+                    <p class="cart-item__price">{{ (item.product.value * item.quantity) | currency: "BRL" }}</p>
+                    <button (click)="deleteItemOnCart($event)" class="remove-item-btn">X</button>
+                </li>
+            </ul>
+            <div class="subtotal">
+                <div>
+                    <p>{{ subtotal | currency: "BRL" }} a vista</p>
+                    <p>ou {{ numberOfInstallments }}x de {{ (subtotal/numberOfInstallments).toFixed(2) | currency: "BRL"}}</p>
+                </div>
+                <button class="buy-btn" (click)="createOrder()">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<ng-template #isCartEmpty>
+    <main>
+        <div class="container">
+            <div *ngIf="isLogged" class="empty-cart">
+                <p>No momento seu carrinho está vazio</p>
+                <button routerLink="/products">Vamos as compras!</button>
+            </div>
+            <div *ngIf="!(isLogged)" class="empty-cart">
+                <p>Logue-se para ter acesso ao carrinho</p>
+                <button routerLink="/user">Logar / Criar conta</button>
+            </div>
+        </div>
+    </main>
+</ng-template>

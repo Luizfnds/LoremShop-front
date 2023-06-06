@@ -4,6 +4,7 @@ import { Filter } from 'src/app/filter';
 import { __values } from 'tslib';
 import { FindProductsService } from './find-products/find-products.service';
 import { HeaderComponent } from '../header/header.component';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,9 @@ export class ProductsComponent implements OnInit {
   filterList: string = "";
   sort: string = "";
 
+  totalPages: any;
+  atualPage: number = 0;
+
   constructor(
     private findProducts: FindProductsService, 
     private sanitizer: DomSanitizer,
@@ -31,16 +35,18 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productName = HeaderComponent.InputName != '' ? HeaderComponent.InputName : '';
-    this.getAllProducts();
+    this.getAllProducts(this.atualPage);
   }
 
-  getAllProducts() {
+  async getAllProducts(page: number) {
     this.getProductName();
     this.getFilterList();
     this.getSort();
-    this.allProducts = this.findProducts
-    .getAllFiltredProducts(this.productName, this.filterList, this.sort)
-    .subscribe((product) => this.allProducts = product);
+    const req = this.findProducts.getAllFiltredProducts(this.productName, this.filterList, this.sort, page);
+    this.allProducts = await firstValueFrom(req);
+
+    const pages = this.allProducts.totalPages;
+    this.totalPages = Array(pages).fill(1).map((x, i) => i + 1);
   }
 
   getProductName() {
@@ -70,6 +76,11 @@ export class ProductsComponent implements OnInit {
 
   getSort() {
     this.sort = (<HTMLSelectElement>document.getElementById("order-filter_options")).value;
+  }
+
+  alterAtualPage(event: any) {
+    this.atualPage = event.srcElement.innerHTML - 1;
+    this.getAllProducts(this.atualPage);    
   }
 
   convertBase64ToImage(imageBase64: any) {
