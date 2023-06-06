@@ -12,7 +12,7 @@ export class UserApiService {
   readonly apiURL!: string;
 
   constructor(private http:HttpClient) { 
-    this.apiURL = 'http://loremshop-back-production.up.railway.app/';
+    this.apiURL = 'https://loremshop-back-production.up.railway.app/';
   }
     
   authenticate(userLoginData: UserLoginData) {
