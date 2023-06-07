@@ -53,7 +53,7 @@ export class UserComponent implements OnInit {
     if(this.passwordRegistry.value === this.passwordConfirmationRegistry.value) {
       const userRegistryData = new UserRegistryData(this.nameRegistry.value, this.surnameRegistry.value, this.emailRegistry.value, this.passwordRegistry.value);
       const req = this.userApi.register(userRegistryData);
-      const token = await firstValueFrom(req);
+      const token = await lastValueFrom(req);
       this.addCookie(token);
   
       this.getUser();
