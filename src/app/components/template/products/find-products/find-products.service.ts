@@ -9,7 +9,9 @@ export class FindProductsService {
   readonly apiURL!: string;
 
   constructor(private http:HttpClient) { 
-    this.apiURL = 'https://loremshop-back-production.up.railway.app/';
+    const urlDev = 'http://localhost:8080/';
+    const urlProd = 'https://loremshop-back-production.up.railway.app/';
+    this.apiURL = urlProd;
   }
     
   getAllProducts(){

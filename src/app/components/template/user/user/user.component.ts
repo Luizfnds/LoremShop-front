@@ -39,13 +39,11 @@ export class UserComponent implements OnInit {
   async authenticate() {
     const userLoginData = new UserLoginData(this.emailLogin.value, this.passwordLogin.value);
     const req = this.userApi.authenticate(userLoginData);
-    const token = await firstValueFrom(req);
-    this.addCookie(token);
-    console.log(token);
-    
+    const sla = await firstValueFrom(req);
 
-    this.getUser();
     this.isLoggedIn = !(this.getCookieValue("token"));
+    console.log(this.getCookieValue("token"));
+    
     this.router.navigate(['user/data']);
   }
 
@@ -74,7 +72,7 @@ export class UserComponent implements OnInit {
     document.cookie = `${token.name}=${token.value}; expires=${expiration}; path=/`;
   }
 
-  getCookieValue(cookieName: string): string {
+  getCookieValue(cookieName: string): string {    
     const cDecoded = decodeURIComponent(document.cookie);
     const cArray = cDecoded.split("; ");
     let cookieValue: string = "";

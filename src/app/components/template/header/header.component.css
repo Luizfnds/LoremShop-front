@@ -1,19 +1,5 @@
 .container {
     min-height: 0px;
-}
-
-header {
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    background-color: white;
-    z-index: 1;
-}
-
-header div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,10 +7,22 @@ header div {
     padding: 10px 0px;
 }
 
+header {
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    background-color: #fafafa;
+    z-index: 1;
+    box-shadow: 0px -5px 10px #555; 
+}
+
 .all-products__link {
     text-decoration: none;
     color: black;
-    font-size: 1.1rem; 
+    font-size: 1.0rem; 
 }
 
 #logo {
@@ -39,9 +37,10 @@ header div {
     align-items: center;
     padding: 0px;
     width: 400px;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     justify-content: space-between;
     margin: 0px 20px 0px 20px;
+    background-color: #fefefe;
 }
 
 #search_bar form {
@@ -56,10 +55,10 @@ header div {
     width: 90%;
 }
 
-.header_icon {
-    width: 30px;
-    height: 30px;
+.fa-solid  {
+    font-size: 1.5rem;
     margin: 0px 5px;
+    color: #000;
 }
 
 #search_bar button {
@@ -81,4 +80,49 @@ form a {
     right: 0px;
     height: 100%;
     margin: 0px;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100vw;
+        height: 70px;
+        padding: 10px;
+        column-gap: 10px;
+    }
+
+    header {
+        width: 100vw;
+    }
+
+    #logo {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: black;
+   }
+
+    #search_bar {
+        margin: 0px;
+        width: 60%;
+        height: 35px;
+        padding: none;
+        position: absolute;
+        bottom: 10px;
+    }
+
+    .all-products__link {
+        text-decoration: none;
+        color: black;
+        font-size: 0.9rem; 
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+
+
 }

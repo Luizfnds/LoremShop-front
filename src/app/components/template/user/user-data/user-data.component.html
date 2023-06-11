@@ -9,7 +9,10 @@
             <label for="input_surname">Sobrenome</label>
             <input type="text" [value]="user.surname" class="user-data_input" id="input_surname" name="input_surname" [formControl]="alterSurname">  
         </div>
-        <button type="submit" id="user-data_btn" (click)="alterUser()">Salvar dados</button>
+        <button type="submit" id="user-data_btn" (click)="alterUser()">
+            Salvar dados
+            <i class="fa-solid fa-floppy-disk"></i>
+        </button>
     </div>
     <div class="user-orders">
     </div>

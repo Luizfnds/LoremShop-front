@@ -42,20 +42,38 @@ export class UserCartComponent implements OnInit {
 
   async alterItemOnCart(event: any) {
     if(!!(this.getCookieValue("token"))) {
-      const orderItemId = event.srcElement.parentElement.id;
-      const quantity = event.srcElement.value;  
-      const token = this.getCookieValue("token");
+      const orderItemId = event.srcElement.parentElement.parentElement.parentElement.id;
+      console.log(event.srcElement);
+      const quantity = event.srcElement.parentElement.childNodes[1].value = 3;  
+      
+      //const token = this.getCookieValue("token");
 
-      const req = this.userApi.alterItemOnCart(token, {quantity:quantity , orderItemId:orderItemId});
-      await lastValueFrom(req);
-      await this.getCart();
-      await this.getSubtotal();
+      //const req = this.userApi.alterItemOnCart(token, {quantity:quantity , orderItemId:orderItemId});
+      //await lastValueFrom(req);
+      //await this.getCart();
+      //await this.getSubtotal();
+    }
+  }
+
+  
+  async alterItemQuantity(event: any) {
+    if(!!(this.getCookieValue("token"))) {
+      const orderItemId = event.srcElement.parentElement.parentElement.parentElement.id;
+      console.log(event.srcElement);
+      const quantity = event.srcElement.parentElement.childNodes[1].value;  
+      
+      //const token = this.getCookieValue("token");
+
+      //const req = this.userApi.alterItemOnCart(token, {quantity:quantity , orderItemId:orderItemId});
+      //await lastValueFrom(req);
+      //await this.getCart();
+      //await this.getSubtotal();
     }
   }
 
   async deleteItemOnCart(event: any) {
     if(!!(this.getCookieValue("token"))) {
-      const orderItemId = event.srcElement.parentElement.id;
+      const orderItemId = event.srcElement.parentElement.parentElement.parentElement.id;
       const token = this.getCookieValue("token");
 
       const req = this.userApi.deleteItemOnCart(token, orderItemId);

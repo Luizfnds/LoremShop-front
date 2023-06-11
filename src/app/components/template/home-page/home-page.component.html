@@ -3,17 +3,16 @@
     <div class="container">
 
         <section id="banner_area">
-            <img class="left_button" src="assets/arrow-right.png" alt="left_button" (click)="previousBanner()">
+            <i class="fa-solid fa-circle-chevron-left" (click)="previousBanner()"></i>
             <ul id="banner_list">
                 <li>
                     <img class="banner_image" [src]="bannerList[bannerIndex]" alt="banner_image">
                 </li>
             </ul>
-            <img class="right_button" src="assets/arrow-right.png" alt="right_button" (click)="nextBanner()">
+            <i class="fa-solid fa-circle-chevron-right" (click)="nextBanner()"></i>
         </section>
 
         <section id="featured_products">
-            <img src="assets/divisoria.png" id="divisoria" alt="divisoria">
             <div class="section_title">DESTAQUE</div>
 
             <ul class="product-list">

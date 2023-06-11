@@ -3,29 +3,25 @@
     <div  class="container">
 
         <div (submit)="authenticate()" id="login">
-            <form>
-                <h2 class="title">Logar</h2>
+            <h2 class="title">LOGAR</h2>
+            <form class="login-form">
                 <input placeholder="E-mail" type="email" name="email" id="login-email" [formControl]="emailLogin">
                 <input placeholder="Senha" type="password" name="password" id="login-password" [formControl]="passwordLogin">
-                <button type="submit" id="login-btn">Logar</button>
+                <button type="submit" id="login-btn">LOGAR</button>
             </form>
         </div>
-        
-        <img id="divisoria" src="../../../../../assets/divisoria-metade.png" alt="divisoria">
-
+    
         <div (submit)="register()" id="register">
+            <h2 class="title">CADASTRAR</h2>
             <form>
-                <h2 class="title">Cadastrar</h2>
-                <div>
-                    <input placeholder="Nome" type="text" id="register-name" [formControl]="nameRegistry">
-                    <input placeholder="Sobrenome" type="text" id="register-surname" [formControl]="surnameRegistry">
-                </div>
+                <input placeholder="Nome" type="text" id="register-name" [formControl]="nameRegistry">
+                <input placeholder="Sobrenome" type="text" id="register-surname" [formControl]="surnameRegistry">
                 <input placeholder="E-mail" type="email" id="register-email" [formControl]="emailRegistry">
                 <div>
-                    <input placeholder="Senha" type="password" id="register-password" [formControl]="passwordRegistry">
-                    <input placeholder="Confirmar senha" type="password" id="register-confirm-password" [formControl]="passwordConfirmationRegistry">
+                    <input placeholder="Senha" type="password" id="register-password" class="input-password" [formControl]="passwordRegistry">
+                    <input placeholder="Confirmar senha" type="password" id="register-confirm-password" class="input-password" [formControl]="passwordConfirmationRegistry">
                 </div>
-                <button type="submit" id="register-btn">Cadastrar</button>
+                <button type="submit" id="register-btn">CADASTRAR</button>
             </form>
         </div>
 
@@ -36,16 +32,21 @@
 <ng-template #isLoggeOut>
     <main>
         <div class="container">
-            <div class="user-options">
-                <ul>
-                    <li><a routerLink="data">Dados pessoais</a></li>
-                    <li><a routerLink="orders">Pedidos</a></li>
-                </ul>
-                <button (click)="removeCookie()">Deslogar</button>
-            </div>
-            
-            <div class="option">
-                <router-outlet></router-outlet>
+            <div class="user-area">
+                <div class="user-options">
+                    <ul>
+                        <li><a routerLink="data">Dados pessoais</a></li>
+                        <li><a routerLink="orders">Pedidos</a></li>
+                    </ul>
+                    <button (click)="removeCookie()">
+                        Deslogar
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+                
+                <div class="option">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </div>
     </main>

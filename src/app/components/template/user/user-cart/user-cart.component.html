@@ -3,20 +3,37 @@
     <div class="container">
         <div class="cart">
             <ul class="item-list">
+                <div class="item-list__header">
+                    <div class="item-list__header__produto">Produto</div>
+                    <div class="item-list__header__quantidade">Quantidade</div>
+                    <div class="item-list__header__valor">Valor</div>
+                </div>
                 <li class="item-list__card" *ngFor="let item of cart.items" [id]="item.id">
                     <img class="cart-item__image" [src]=" item.product.image ">
                     <h2 class="cart-item__name">{{ item.product.name }}</h2>
-                    <input class="cart-item__quantity" type="number" min="1" [value]="item.quantity" (change)="alterItemOnCart($event)">
+                    <div class="prov-div">
+                        <div class="cart-item__quantity">
+                            <i class="fa-solid fa-minus" (click)="alterItemOnCart($event)"></i>
+                            <input class="quantity__input" type="number" min="1" [value]="item.quantity">
+                            <i class="fa-solid fa-plus" (click)="alterItemOnCart($event)"></i>
+                        </div>
+                        <div (click)="deleteItemOnCart($event)" class="remove-item-btn">
+                            <i class="fa-solid fa-trash"></i>
+                            <span>Remover</span>
+                        </div>
+                    </div>
                     <p class="cart-item__price">{{ (item.product.value * item.quantity) | currency: "BRL" }}</p>
-                    <button (click)="deleteItemOnCart($event)" class="remove-item-btn">X</button>
                 </li>
             </ul>
-            <div class="subtotal">
-                <div>
-                    <p>{{ subtotal | currency: "BRL" }} a vista</p>
-                    <p>ou {{ numberOfInstallments }}x de {{ (subtotal/numberOfInstallments).toFixed(2) | currency: "BRL"}}</p>
+            <div class="checkout">
+                <div class="checkout__subtotal">
+                    Total:
+                    <div class="subtotal">
+                        <span class="subtotal__total">{{ subtotal | currency: "BRL" }}</span>
+                        <span class="subtotal__installment">ou {{ numberOfInstallments }}x de {{ (subtotal/numberOfInstallments).toFixed(2) | currency: "BRL"}}</span>
+                    </div>
                 </div>
-                <button class="buy-btn" (click)="createOrder()">Finalizar compra</button>
+                <button class="buy-btn" (click)="createOrder()">FINALIZAR COMPRA</button>
             </div>
         </div>
     </div>
@@ -27,12 +44,14 @@
     <main>
         <div class="container">
             <div *ngIf="isLogged" class="empty-cart">
+                <img src="assets/empty-cart.png" alt="">
                 <p>No momento seu carrinho está vazio</p>
                 <button routerLink="/products">Vamos as compras!</button>
             </div>
             <div *ngIf="!(isLogged)" class="empty-cart">
-                <p>Logue-se para ter acesso ao carrinho</p>
-                <button routerLink="/user">Logar / Criar conta</button>
+                <img src="assets/disconnected-user.png" alt="">
+                <p>Conecte-se para ter acesso ao carrinho</p>
+                <button routerLink="/user">CONECTAR-SE</button>
             </div>
         </div>
     </main>

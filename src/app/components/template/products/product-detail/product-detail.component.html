@@ -17,15 +17,12 @@
             </div>
             -->
             <div id="product-value">
-                <span>{{ product.value | currency: "BRL" }}</span>
+                <span class="value">{{ product.value | currency: "BRL" }}</span>
                 <span id="product-installment">ou {{ numberOfInstallments }}x de {{ (product.value/numberOfInstallments).toFixed(2) | currency: "BRL"}} sem juros</span>
             </div>
             <div id="product-add-cart">
-                <div id="product-quantity">
-                    <span>Quantidade</span>
-                    <input [(ngModel)]="quantity" type="number" min="1" value="1">
-                </div>
-                <button (click)="addItemOnCart()">Adicionar ao carrinho</button>
+
+                <button class="checkout-btn" (click)="addItemOnCart()">ADICIONAR AO CARRINHO</button>
             </div>
         </div>
     </div>

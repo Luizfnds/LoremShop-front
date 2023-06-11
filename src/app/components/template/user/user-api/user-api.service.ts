@@ -12,11 +12,13 @@ export class UserApiService {
   readonly apiURL!: string;
 
   constructor(private http:HttpClient) { 
-    this.apiURL = 'https://loremshop-back-production.up.railway.app/';
+    const urlDev = 'http://localhost:8080/';
+    const urlProd = 'https://loremshop-back-production.up.railway.app/';
+    this.apiURL = urlProd;
   }
     
   authenticate(userLoginData: UserLoginData) {
-    return this.http.post(`${this.apiURL}auth/authenticate`, userLoginData);
+    return this.http.post(`${this.apiURL}auth/authenticate`, userLoginData, { withCredentials: true });
   }
 
   register(userRegistryData: UserRegistryData) {
