@@ -139,6 +139,7 @@ button {
         flex-wrap: wrap;
         row-gap: 40px;
         margin-top: 10px;
+        width: 100vw;
     }
 
     #login,
@@ -165,6 +166,40 @@ button {
 
     .input-password {
         width: 180px;
+    }
+
+    .user-options li a{
+        font-size: 1.0rem;
+    }
+
+    .user-area {
+        width: 100vw;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .user-options {
+        width: 300px;
+        height: 50px;
+        flex-direction: row;
+    }
+
+    .user-options button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+    }
+
+    .user-options button span {
+        display: none;
+    }
+
+    .option {
+        justify-content: center;
+        align-items: center;
     }
 
 }

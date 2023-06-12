@@ -199,15 +199,27 @@ h1 {
         padding: 5px;
     }
 
+    #order-filter_options,
+    #order-filter_title {
+        font-size: .7rem;
+    }
+
+    .totalPages {
+        margin-bottom: 20px;
+    }
+
     .product-list {
         margin-bottom: 80px;
         width: 100vw;
-        flex-wrap: wrap;
         column-gap: 10px;
         row-gap: 10px;
+        flex-wrap: wrap;
         justify-content: center;
         height: auto;
     }
+
+    .product-list::-webkit-scrollbar {width: 0! important}
+    .product-list {overflow:-moz-scrollbars-none; }
         
     .product-list__link {
         text-decoration: none;
@@ -245,12 +257,4 @@ h1 {
         padding-bottom: 5px;
     }
 
-    #order-filter_options,
-    #order-filter_title {
-        font-size: .7rem;
-    }
-
-    .totalPages {
-        margin-bottom: 20px;
-    }
 }

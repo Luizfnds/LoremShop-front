@@ -60,3 +60,17 @@
     justify-content: flex-end;
     padding-top: 10px;
 }
+
+@media (max-width: 600px) {
+
+    #option-title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .order-list {
+        width: 350px;
+    }
+
+}

@@ -79,5 +79,54 @@ main {
     }
 
 
-
+        .product-list {
+            margin-bottom: 80px;
+            width: 350px;
+            column-gap: 10px;
+            row-gap: 10px;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            height: auto;
+            overflow-x: scroll;
+        }
+    
+        .product-list::-webkit-scrollbar {width: 0! important}
+        .product-list {overflow:-moz-scrollbars-none; }
+            
+        .product-list__link {
+            text-decoration: none;
+        }
+    
+        .product-list__card {
+            display: flex;
+            border: 1px solid var(--border-color);
+        }
+    
+        .product-item__details {
+            height: 60px;
+            width: 140px;
+            background-color: rgb(42, 42, 49);
+            color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 5px;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    
+        .product-item__image {
+            width: 150px;
+        }
+    
+        .product-item__price {
+            font-size: 1.0rem;
+        }
+    
+        .product-item__name {
+            font-size: 0.7rem;
+            padding-bottom: 5px;
+        }
+    
 }
