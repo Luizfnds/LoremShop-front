@@ -18,7 +18,7 @@ export class UserApiService {
   }
     
   authenticate(userLoginData: UserLoginData) {
-    return this.http.post(`${this.apiURL}auth/authenticate`, userLoginData, { withCredentials: true });
+    return this.http.post(`${this.apiURL}auth/authenticate`, userLoginData);
   }
 
   register(userRegistryData: UserRegistryData) {

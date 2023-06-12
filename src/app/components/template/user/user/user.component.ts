@@ -38,12 +38,13 @@ export class UserComponent implements OnInit {
 
   async authenticate() {
     const userLoginData = new UserLoginData(this.emailLogin.value, this.passwordLogin.value);
-    const req = this.userApi.authenticate(userLoginData);
-    const sla = await firstValueFrom(req);
+    const req = this.userApi.authenticate(userLoginData);  
+    const token = await lastValueFrom(req);
 
+    this.addCookie(token);
+
+    this.getUser();
     this.isLoggedIn = !(this.getCookieValue("token"));
-    console.log(this.getCookieValue("token"));
-    
     this.router.navigate(['user/data']);
   }
 
