@@ -69,7 +69,7 @@ export class UserComponent implements OnInit {
 
   addCookie(token: any) {
     let expiration = new Date(token.expiration);        
-    document.cookie = `${token.name}=${token.value}; expires=${expiration}; path=/`;
+    document.cookie = `${token.name}=${token.value}; expires=${expiration}; path=/; SameSite=None; Secure`;
   }
 
   getCookieValue(cookieName: string): string {    
