@@ -52,7 +52,6 @@ export class UserComponent implements OnInit {
       const userRegistryData = new UserRegistryData(this.nameRegistry.value, this.surnameRegistry.value, this.emailRegistry.value, this.passwordRegistry.value);
       const req = this.userApi.register(userRegistryData);
       const token = await lastValueFrom(req);
-      console.log("0",token);
 
       this.addCookie(token);
   
@@ -70,11 +69,8 @@ export class UserComponent implements OnInit {
   }
 
   addCookie(token: any) {
-    console.log("1",token);
     let expiration = new Date(token.expiration);        
-    console.log(token);
-    console.log(token.value);
-    document.cookie = `${token.name}=${token.value}; expires=${expiration}; path=/; SameSite=None; Secure`;
+    document.cookie = `${token.name}=${token.value}; expires=${expiration}; path=/; SameSite=Lax`;
   }
 
   getCookieValue(cookieName: string): string {    
