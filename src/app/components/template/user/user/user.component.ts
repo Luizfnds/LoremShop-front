@@ -72,7 +72,7 @@ export class UserComponent implements OnInit {
     const expiration = new Date(token.expiration);        
     const name = token.name;
     const value = token.value;
-    const cookie = name+"="+value+"; "+"expires="+expiration+"; "+"path=/";
+    const cookie = name+"="+value+";"+"expires="+expiration+";"+"path=/";
     document.cookie = cookie;
   }
 
