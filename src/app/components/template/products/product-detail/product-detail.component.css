@@ -101,3 +101,33 @@ h1 {
     align-items: center;
     column-gap: 10px;
 }
+
+@media (max-width: 600px) {
+
+    main {
+    }
+
+    #products-detail {
+        height: auto;
+        width: 100vw;
+        flex-wrap: wrap;
+    }
+
+    #product-image .product-item__image {
+        width: 300px;
+    }
+
+    #product-info {
+        width: 280px;
+        height: 140px;
+        margin: 0px;
+        padding: 10px 10px;
+        justify-content: center;
+    }
+
+    .checkout-btn {
+        width: 280px;
+        font-size: 0.9rem;
+        margin: 0px;
+    }
+}

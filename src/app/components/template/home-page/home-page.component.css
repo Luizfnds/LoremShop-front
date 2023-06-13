@@ -39,14 +39,15 @@ main {
 }
 
 .section_title {
-    width: 100%;
+    width: 725px;
     height: 30px;
-    background-color: black;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f2f2f2;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur( 13.5px );
 }
 
 #divisoria {
@@ -78,6 +79,9 @@ main {
         font-size: 1.4rem;
     }
 
+    .section_title {
+        width: 100vw;
+    }
 
         .product-list {
             margin-bottom: 80px;

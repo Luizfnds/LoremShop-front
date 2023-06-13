@@ -22,7 +22,9 @@
     border-radius: 10px;
     width: 300px;
     height: 210px;
-    background-color: #f2f2f2;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur( 13.5px );
 }
 
 #login form,
@@ -50,8 +52,7 @@
 
 #login form input,
 #register form input {
-    border: 1px solid var(--border-color);
-    background-color: #f9f9f9;
+    background-color: aliceblue;
     padding: 10px;
 }
 
@@ -77,8 +78,8 @@ button {
     font-size: 1.1rem;
     font-weight: 400;
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--border-color);
-    color: #333;
+    border-bottom: 1px solid aliceblue;
+    color: aliceblue;
 }
 
 /* user options */
@@ -99,8 +100,10 @@ button {
     justify-content: space-between;
     height: 400px;
     width: 200px;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur( 13.5px );
     border-radius: 10px;
-    background-color: #f2f2f2;
 }
 
 .user-options ul{
@@ -112,8 +115,8 @@ button {
 .user-options li a{
     padding-left: 5px;
     text-decoration: none;
-    color: #000;
-    border-left: 3px solid #000;
+    color: aliceblue;
+    border-left: 3px solid aliceblue;
     font-size: 1.1rem;
 }
 

@@ -3,9 +3,9 @@
         <a id="logo" routerLink="/">LoremShop</a>
         <div id="search_bar">
             <form>
-                <input (keyup.enter)="getInputName($event)" id="input-busca" placeholder="Buscar um produto específico" type="text">
+                <input (keyup.enter)="getInputName($event)" id="input-busca" placeholder="Buscar produto" type="text">
                 <a (click)="getInputName($event)">
-                    <img id="lupa" alt="lupa" src="../../../../assets/magnifying-glass.png">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
             </form>
         </div>

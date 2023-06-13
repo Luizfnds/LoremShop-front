@@ -14,7 +14,7 @@ export class UserApiService {
   constructor(private http:HttpClient) { 
     const urlDev = 'http://localhost:8080/';
     const urlProd = 'https://loremshop-back-production.up.railway.app/';
-    this.apiURL = urlProd;
+    this.apiURL = urlDev;
   }
     
   authenticate(userLoginData: UserLoginData) {
